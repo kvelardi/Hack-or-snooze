@@ -63,9 +63,12 @@ $navUserProfile.on("click", navUserProfileClick);
 function updateNavOnLogin() {
   console.debug("updateNavOnLogin");
   $(".main-nav-links").show();
-  $navLogin.hide();
+  $navLogin.show();
   $navLogOut.show();
   $navUserProfile.text(`${currentUser.username}`).show();
+  $navSubmit.show();
+  
+
 }
 
 

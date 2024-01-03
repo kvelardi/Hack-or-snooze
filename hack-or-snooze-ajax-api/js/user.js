@@ -122,10 +122,24 @@ async function updateUIOnUserLogin() {
 function generateUserProfile() {
   console.debug("generateUserProfile");
 
-  $("#profile-name").text(`Name: ${currentUser.name}`);
-  $("#profile-username").text(`Username: ${currentUser.username}`);
-  $("#profile-account-date").text(
+  $("#user-profile-name").text(`Name: ${currentUser.name}`);
+  $("#user-profile-username").text(`Username: ${currentUser.username}`);
+  $("#user-profile-account-date").text(
     `Account Created: ${currentUser.createdAt.slice(0, 10)}`
   );
 
+}
+
+async function ownStories(){
+  console.debug("ownStories");
+ 
+  const ownStories = await StoryList.getStories(currentUser);
+  
+  console.log(ownStories);
+  
+  for(let story of ownStories){
+    const result = generateStoryHTML(story);
+    $ownStories.append(result);
+  }
+  $ownStories.show();
 }

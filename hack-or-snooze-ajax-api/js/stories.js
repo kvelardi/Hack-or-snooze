@@ -1,7 +1,8 @@
 "use strict";
-
+$(document).ready(function() {
 // This is the global list of the stories, an instance of StoryList
 let storyList;
+const $ownStories = $("#my-stories-list");
 
 /** Get and show stories when site first loads. */
 
@@ -82,6 +83,8 @@ async function deleteStory(evt) {
 
   await putUserStoriesOnPage();
   }
+
+  
 
   $ownStories.on("click", ".trash-can", deleteStory);
 
@@ -166,3 +169,4 @@ async function toggleStoryFavorite(evt) {
 }
 
 $storiesLists.on("click", ".star", toggleStoryFavorite);
+});
