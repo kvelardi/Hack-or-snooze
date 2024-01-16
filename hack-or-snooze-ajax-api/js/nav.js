@@ -33,6 +33,8 @@ function navFavoritesClick(evt) {
   putFavoritesListOnPage();
 }
 
+$favoritedStories.on("click", "#favorited-stories", navFavoritesClick);
+
 /**Show myStories on click "My Stories" */
 function navMyStories(evt) {
   console.debug("navMyStories", evt);
